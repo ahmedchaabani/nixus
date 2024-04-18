@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Nexus Career - Formations</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Inter:wght@700;800&display=swap" rel="stylesheet">
+    
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- FullCalendar Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/5.10.1/main.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+    <div class="container-xxl bg-white p-0">
+        <!-- Navbar Start -->
+        <nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
+            <a href="index.html" class="navbar-brand d-flex align-items-center text-center py-0 px-4 px-lg-5">
+                <h1 class="m-0 text-primary">Nexus Career</h1>
+            </a>
+            <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav ms-auto p-4 p-lg-0">
+                    <a href="index.html" class="nav-item nav-link">Home</a>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown">Formation</a>
+                        <div class="dropdown-menu rounded-0 m-0">
+                            <a href="#" class="dropdown-item" onclick="showAllFormations()">Afficher les formations</a>
+                            <a href="#" class="dropdown-item" onclick="showSearchForm()">Chercher une formation</a>
+                            <a href="#" class="dropdown-item" onclick="sortFormations()">Trier les formations</a>
+                            <a href="#" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#calendarModal">Calendrier</a>
+                            <a href="#" class="dropdown-item" onclick="showExpertSystem()">Système Expert</a>
+                        </div>
+                    </div>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Jobs</a>
+                        <div class="dropdown-menu rounded-0 m-0">
+                            <a href="job-list.html" class="dropdown-item">Job List</a>
+                            <a href="job-detail.html" class="dropdown-item">Job Detail</a>
+                        </div>
+                    </div>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
+                        <div class="dropdown-menu rounded-0 m-0">
+                            <a href="category.html" class="dropdown-item">Job Category</a>
+                            <a href="testimonial.html" class="dropdown-item">Testimonial</a>
+                            <a href="404.html" class="dropdown-item">404</a>
+                        </div>
+                    </div>
+                    <a href="contact.html" class="nav-item nav-link">Contact</a>
+                </div>
+                <a href="" class="btn btn-primary rounded-0 py-4 px-lg-5 d-none d-lg-block">Post A Job<i class="fa fa-arrow-right ms-3"></i></a>
+            </div>
+        </nav>
+        <!-- Navbar End -->
+
+        <!-- Formation Content Start -->
+        <div class="container-xxl py-5">
+            <div class="container" id="content">
+                <!-- Le contenu sera affiché ici en fonction de l'option choisie -->
+            </div>
+        </div>
+        <!-- Formation Content End -->
+
+        <!-- Footer Start -->
+        <!-- Votre pied de page ici -->
+        <!-- Footer End -->
+    </div>
+
+    <!-- Calendar Modal -->
+    <div class="modal fade" id="calendarModal" tabindex="-1" aria-labelledby="calendarModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="calendarModalLabel">Calendrier des Formations</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="calendar"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript Libraries -->
+    <!-- Assurez-vous d'inclure les bibliothèques JavaScript nécessaires ici -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.min.js"></script>
+    
+    <!-- FullCalendar JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/5.10.1/main.min.js"></script>
+
+    <script>
+        function showAllFormations() {
+            // Example data - replace this with your actual data from the server
+            var formations = [
+                { id: 1, name: "Formation 1", type: "Informatique", description: "Description de la formation 1", etat: "En cours", cout: 1000, id_user: 1, date_debut: "2024-04-01", date_fin: "2024-04-30" },
+                { id: 2, name: "Formation 2", type: "Langue", description: "Description de la formation 2", etat: "À venir", cout: 1500, id_user: 2, date_debut: "2024-05-01", date_fin: "2024-05-30" },
+                { id: 3, name: "Formation 3", type: "Management", description: "Description de la formation 3", etat: "Terminée", cout: 2000, id_user: 3, date_debut: "2024-06-01", date_fin: "2024-06-30" }
+            ];
+
+            var table = "<h2>Liste des formations</h2><table class='table'><thead><tr><th>ID</th><th>Nom</th><th>Type</th><th>Description</th><th>État</th><th>Coût (DT)</th><th>ID utilisateur</th><th>Date de début</th><th>Date de fin</th></tr></thead><tbody>";
+            formations.forEach(function(formation) {
+                table += "<tr>";
+                table += "<td>" + formation.id + "</td>";
+                table += "<td>" + formation.name + "</td>";
+                table += "<td>" + formation.type + "</td>";
+                table += "<td>" + formation.description + "</td>";
+                table += "<td>" + formation.etat + "</td>";
+                table += "<td>" + formation.cout + "</td>";
+                table += "<td>" + formation.id_user + "</td>";
+                table += "<td>" + formation.date_debut + "</td>";
+                table += "<td>" + formation.date_fin + "</td>";
+                table += "</tr>";
+            });
+            table += "</tbody></table>";
+
+            document.getElementById("content").innerHTML = table;
+        }
+
+        function showSearchForm() {
+            var searchForm = "<h2>Chercher une formation</h2>" +
+                             "<form onsubmit='searchFormation(); return false;'>" +
+                             "<label for='formationId'>ID de la formation:</label>" +
+                             "<input type='text' id='formationId' name='formationId' required>" +
+                             "<button type='submit'>Chercher</button>" +
+                             "</form>";
+
+            document.getElementById("content").innerHTML = searchForm;
+        }
+
+        function searchFormation() {
+            var formationId = document.getElementById("formationId").value;
+            // Example data - replace this with your actual data from the server
+            var formations = [
+                { id: 1, name: "Formation 1", type: "Informatique", description: "Description de la formation 1", etat: "En cours", cout: 1000, id_user: 1, date_debut: "2024-04-01", date_fin: "2024-04-30" },
+                { id: 2, name: "Formation 2", type: "Langue", description: "Description de la formation 2", etat: "À venir", cout: 1500, id_user: 2, date_debut: "2024-05-01", date_fin: "2024-05-30" },
+                { id: 3, name: "Formation 3", type: "Management", description: "Description de la formation 3", etat: "Terminée", cout: 2000, id_user: 3, date_debut: "2024-06-01", date_fin: "2024-06-30" }
+            ];
+
+            var foundFormation = formations.find(function(formation) {
+                return formation.id == formationId;
+            });
+
+            if (foundFormation) {
+                var formationInfo = "<h2>Formation trouvée</h2><p>ID: " + foundFormation.id + "</p><p>Nom: " + foundFormation.name + "</p><p>Type: " + foundFormation.type + "</p><p>Description: " + foundFormation.description + "</p><p>État: " + foundFormation.etat + "</p><p>Coût (DT): " + foundFormation.cout + "</p><p>ID utilisateur: " + foundFormation.id_user + "</p><p>Date de début: " + foundFormation.date_debut + "</p><p>Date de fin: " + foundFormation.date_fin + "</p>";
+                document.getElementById("content").innerHTML = formationInfo;
+            } else {
+                alert("Formation non trouvée");
+            }
+        }
+
+        function sortFormations() {
+            // Sort formations by start date
+            var formations = [
+                { id: 1, name: "Formation 1", type: "Informatique", description: "Description de la formation 1", etat: "En cours", cout: 1000, id_user: 1, date_debut: "2024-04-01", date_fin: "2024-04-30" },
+                { id: 2, name: "Formation 2", type: "Langue", description: "Description de la formation 2", etat: "À venir", cout: 1500, id_user: 2, date_debut: "2024-05-01", date_fin: "2024-05-30" },
+                { id: 3, name: "Formation 3", type: "Management", description: "Description de la formation 3", etat: "Terminée", cout: 2000, id_user: 3, date_debut: "2024-06-01", date_fin: "2024-06-30" }
+            ];
+
+            formations.sort(function(a, b) {
+                return new Date(a.date_debut) - new Date(b.date_debut);
+            });
+
+            var table = "<h2>Liste des formations triées par date de début</h2><table class='table'><thead><tr><th>ID</th><th>Nom</th><th>Type</th><th>Description</th><th>État</th><th>Coût (DT)</th><th>ID utilisateur</th><th>Date de début</th><th>Date de fin</th></tr></thead><tbody>";
+            formations.forEach(function(formation) {
+                table += "<tr>";
+                table += "<td>" + formation.id + "</td>";
+                table += "<td>" + formation.name + "</td>";
+                table += "<td>" + formation.type + "</td>";
+                table += "<td>" + formation.description + "</td>";
+                table += "<td>" + formation.etat + "</td>";
+                table += "<td>" + formation.cout + "</td>";
+                table += "<td>" + formation.id_user + "</td>";
+                table += "<td>" + formation.date_debut + "</td>";
+                table += "<td>" + formation.date_fin + "</td>";
+                table += "</tr>";
+            });
+            table += "</tbody></table>";
+
+            document.getElementById("content").innerHTML = table;
+        }
+
+        function showCalendar() {
+            // Example data - replace this with your actual data from the server
+            var formations = [
+                { id: 1, title: "Formation 1", start: "2024-04-01", end: "2024-04-30" },
+                { id: 2, title: "Formation 2", start: "2024-05-01", end: "2024-05-30" },
+                { id: 3, title: "Formation 3", start: "2024-06-01", end: "2024-06-30" }
+            ];
+
+            // Initialize FullCalendar
+            var calendarEl = document.getElementById('calendar');
+            var calendar = new FullCalendar.Calendar(calendarEl, {
+                initialView: 'dayGridMonth',
+                events: formations,
+                eventClick: function(info) {
+                    alert("Date de début de la formation : " + info.event.start);
+                }
+            });
+
+            calendar.render();
+        }
+
+        function showExpertSystem() {
+            // Placeholder code
+            document.getElementById("content").innerHTML = "<h2>Système Expert</h2>";
+        }
+
+        // Call showCalendar function when the calendar modal is shown
+        $('#calendarModal').on('shown.bs.modal', function () {
+            showCalendar();
+        });
+    </script>
+</body>
+
+</html>
