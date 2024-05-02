@@ -1,0 +1,378 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+    --color-primary: #6C9BCF;
+    --color-danger: #FF0060;
+    --color-success: #1B9C85;
+    --color-warning: #F7D060;
+    --color-white: #fff;
+    --color-info-dark: #7d8da1;
+    --color-dark: #363949;
+    --color-light: rgba(132, 139, 200, 0.18);
+    --color-dark-variant: #677483;
+    --color-background: #f6f6f9;
+
+    --card-border-radius: 2rem;
+    --border-radius-1: 0.4rem;
+    --border-radius-2: 1.2rem;
+
+    --card-padding: 1.8rem;
+    --padding-1: 1.2rem;
+
+    --box-shadow: 0 2rem 3rem var(--color-light);
+}
+
+.dark-mode-variables {
+    --color-background: #181a1e;
+    --color-white: #202528;
+    --color-dark: #edeffd;
+    --color-dark-variant: #a3bdcc;
+    --color-light: rgba(0, 0, 0, 0.4);
+    --box-shadow: 0 2rem 3rem var(--color-light);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    border: 0;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 14px;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.88rem;
+    user-select: none;
+    overflow-x: hidden;
+    color: var(--color-dark);
+    background-color: var(--color-background);
+}
+
+a {
+    color: var(--color-dark);
+}
+
+h1 {
+    font-weight: 800;
+    font-size: 1.8rem;
+}
+
+p {
+    color: var(--color-dark-variant);
+}
+
+.text-muted {
+    color: var(--color-info-dark);
+}
+
+.container {
+    width: 96%;
+    margin: 0 auto;
+}
+
+ul {
+    list-style: none;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+ul li {
+    display: inline;
+    margin-right: 1rem;
+}
+
+ul li:last-child {
+    margin-right: 0;
+}
+
+form {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+form input[type="text"] {
+    padding: 0.6rem 1rem;
+    border: 1px solid var(--color-info-dark);
+    border-radius: 2rem;
+    margin-right: 0.5rem;
+}
+
+button {
+    padding: 0.8rem 1.5rem;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--color-white);
+    background-color: var(--color-primary);
+    border: none;
+    border-radius: 2rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: darken(var(--color-primary), 10%);
+}
+
+footer {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+#response {
+    width: 100%; /* Ensure the textarea spans the full width */
+    padding: 0.8rem 1rem; /* Adjust padding */
+    border: 1px solid var(--color-info-dark); /* Match border color */
+    border-radius: 1rem; /* Make the edges rounded */
+    margin-bottom: 2rem; /* Add some margin at the bottom */
+    resize: vertical; /* Allow vertical resizing */
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.88rem;
+    color: var(--color-dark);
+    background-color: var(--color-white);
+}
+#send-response-btn {
+    margin-top: 1rem;
+    padding: 0.8rem 1.5rem;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--color-white);
+    background-color: var(--color-primary);
+    border: none;
+    border-radius: var(--border-radius-1);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#send-response-btn:hover {
+    background-color: darken(var(--color-primary), 10%);
+}
+
+#reclamations {
+    margin-top: 1.4rem;
+}
+
+#reclamations h2 {
+    margin-bottom: 1rem;
+}
+
+.reclamation {
+    background-color: var(--color-white);
+    padding: var(--card-padding);
+    border-radius: var(--card-border-radius);
+    margin-bottom: 1.6rem;
+    box-shadow: var(--box-shadow);
+}
+
+.reclamation .info h3 {
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.reclamation .info p {
+    margin-bottom: 0.5rem;
+}
+
+.reclamation .response {
+    margin-top: 1rem;
+}
+
+.reclamation .response h3 {
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin-bottom: 0.8rem;
+}
+
+.reclamation .response textarea {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid var(--color-info-dark);
+    border-radius: var(--border-radius-1);
+    resize: vertical;
+    margin-bottom: 0.8rem;
+}
+
+.reclamation .response button {
+    padding: 0.6rem 1.2rem;
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    border: none;
+    border-radius: var(--border-radius-1);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.reclamation .response button:hover {
+    background-color: darken(var(--color-primary), 10%);
+}
+body {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.88rem;
+    color: var(--color-dark);
+    background-color: var(--color-background);
+}
+
+h1 {
+    font-weight: 800;
+    font-size: 1.8rem;
+    text-align: center;
+}
+
+p {
+    color: var(--color-dark-variant);
+}
+
+ul {
+    list-style: none;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+ul li {
+    display: inline;
+    margin-right: 1rem;
+}
+
+ul li:last-child {
+    margin-right: 0;
+}
+
+a {
+    color: var(--color-dark);
+}
+
+a:hover {
+    color: var(--color-primary);
+}
+
+.footer {
+    text-align: center;
+    margin-top: 2rem;
+}
+/* Basic reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    color: var(--color-dark);
+    background-color: var(--color-background);
+}
+
+/* Typography */
+h1 {
+    font-weight: 800;
+    font-size: 1.8rem;
+}
+
+p {
+    color: var(--color-dark-variant);
+}
+
+a {
+    color: var(--color-dark);
+    text-decoration: none;
+}
+
+/* Container styles */
+.container {
+    width: 96%;
+    margin: 0 auto;
+}
+
+/* Button styles */
+button {
+    padding: 0.8rem 1.5rem;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--color-white);
+    background-color: var(--color-primary);
+    border: none;
+    border-radius: 2rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: darken(var(--color-primary), 10%);
+}
+
+/* Heading styles */
+h1 {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+/* Menu styles */
+ul {
+    list-style: none;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+ul li {
+    display: inline;
+    margin-right: 1rem;
+}
+
+ul li:last-child {
+    margin-right: 0;
+}
+
+/* Footer styles */
+footer {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+/* Additional styles for the provided HTML */
+
+/* Title style */
+h1 {
+    font-weight: 800;
+    font-size: 2rem; /* Increased font size */
+    text-align: center;
+    margin-top: 2rem;
+}
+
+/* Paragraph style */
+p {
+    font-size: 1rem; /* Increased font size */
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+/* Menu link style */
+ul li a {
+    color: var(--color-primary); /* Adjust link color */
+    text-decoration: none;
+    font-weight: 600;
+}
+
+/* Footer style */
+footer {
+    text-align: center; /* Center-align the footer text */
+    margin-top: 4rem;
+}
+img {
+    max-width: 200px; /* Adjust this value to make the image smaller */
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+
