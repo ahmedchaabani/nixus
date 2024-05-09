@@ -6,6 +6,7 @@ if(isset($_GET['id'])) {
     $forC = new FormationC();
     $formation = $forC->selectFormation($_GET['id']);
 }
+//$id = $row['id']; // Récupération de l'ID depuis $row['id']
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -97,7 +98,10 @@ if(isset($_GET['id'])) {
         .add-button:hover {
             background-color: #0056b3;
         }
-        
+        .button-wrapper {
+    margin-top: 20px; /* Ajouter une marge en haut pour l'espace */
+}
+ 
     </style>
 
 <body>
@@ -142,6 +146,17 @@ if(isset($_GET['id'])) {
                 </div>
                 <a href="" class="btn btn-primary rounded-0 py-4 px-lg-5 d-none d-lg-block">Post A Job<i class="fa fa-arrow-right ms-3"></i></a>
             </div>
+            <div class="button-wrapper text-center">
+    <div class="button-container">
+        <button class="btn btn-primary w-100 py-3 mb-3"><a href="ClientFormation.php?id=<?php echo $row['id'] ?>">Retourner</a></button>
+    </div>
+    <div class="button-container">
+        <a class="custom-button" href="show2.php?id=<?php echo $_GET['id'] ?>">Show</a>
+    </div>
+</div>
+
+
+
         </nav>
         <!-- Navbar End -->
 

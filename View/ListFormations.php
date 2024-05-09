@@ -156,6 +156,7 @@ $result = $forC->listFormations();
         <!-- Formations container -->
         <div class="formations-container">
 
+        
             <?php foreach ($result as $row) { ?>
                 <div class="formation-item">
                 <h3>ID de formation : <?php echo $row['id'] ?></h3>
@@ -166,8 +167,9 @@ $result = $forC->listFormations();
                     <div class="button-container">
                         <button class="update-button"><a href="updateFormation.php?id=<?php echo $row['id'] ?>">Update</a></button>
                         <button class="delete-button"><a href="deleteFormation.php?id=<?php echo $row['id'] ?>">Delete</a></button>
+                        
                         <button class="delete-button"><a href="showFormation.php?id=<?php echo $row['id'] ?>">Show</a></button>
-
+                        <button class="delete-button"><a href="addAtelier.php?id=<?php echo $row['id'] ?>">ajout ate</a></button>
                     </div>
                 </div>
             <?php } ?>
@@ -211,7 +213,20 @@ $result = $forC->listFormations();
         <p>New Formation</p>
     </div>
 </a>
-
+<a href="rechercheformation.php" class="user-profile">
+    <div class="logo">
+        <img src="images/logo.png">
+        <h2>rechercher</h2>
+        <p> Formation</p>
+    </div>
+</a>
+<a href="help.php" class="user-profile">
+    <div class="logo">
+        <img src="images/logo.png">
+        <h2>help</h2>
+        <p> formation</p>
+    </div>
+</a>
 
             <div class="reminders">
                 <div class="header">

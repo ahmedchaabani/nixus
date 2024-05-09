@@ -17,7 +17,32 @@ class FormationC{
             die('Erreur : '.$e->getMessage());
         }
     }
-
+    public function trierformationsParname() {
+        $sql = "SELECT * FROM formation ORDER BY nom_f ASC";
+        $db = config::getConnexion();
+        try {
+            $q = $db->prepare($sql);
+            $q->execute();
+            $r = $q->fetchAll();
+            return $r;
+        } catch (Exception $e) {
+            die('Erreur : ' . $e->getMessage());
+        }
+    }
+    public function getFormationById($id) {
+        $sql = "SELECT * FROM formation WHERE id=:id";
+        $db = config::getConnexion();
+        try {
+            $q = $db->prepare($sql);
+            $q->bindValue(':id',$id);
+            $q->execute();
+            $formation = $q->fetch(PDO::FETCH_ASSOC);
+            return $formation;
+        } catch (Exception $e) {
+            die('Erreur : '.$e->getMessage());
+        }
+    }
+    
     public function selectFormation($id) {
         $sql = "SELECT * FROM formation WHERE id=:id";
         $db = config::getConnexion();
@@ -31,6 +56,8 @@ class FormationC{
             die('Erreur : '.$e->getMessage());
         }
     }
+
+
     public function selectFormationClient($id) {
         $sql = "SELECT * FROM formation WHERE id=:id";
         $db = config::getConnexion();

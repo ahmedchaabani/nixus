@@ -4,7 +4,7 @@ class Atelier{
     // declaration des attributs
     private ?int $id=null ;
     private string $nom_a;
-    private string $dure_f;
+    private string $dure_a;
     private string $description_a;
     private string $formateur_a;
     private string $niveau_a;

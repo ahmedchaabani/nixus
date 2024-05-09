@@ -11,6 +11,7 @@ class Formation{
     private int $id_user;
     private string $date_debut;
     private string $date_fin;
+    
     // declaration du constructeur
     public function __construct($i=null, $n, $t, $d, $e, $c, $iu, $dd, $df ){
         $this->id=$i;
@@ -28,11 +29,11 @@ class Formation{
     // declaration des getters & setters
     public function getId()
     {
-        return $this->id;
+        return $this->idd;
     }
     public function setId($id)
     {
-        $this->id = $id;
+        $this->id = $idd;
 
         return $this;
     }

@@ -1,13 +1,17 @@
 <?php
 include '../Controller/FormationC.php';
+include '../Model/Formation.php';
 
 // Vérifie si l'ID de la formation est fourni dans l'URL
 if(isset($_GET['id'])) {
     $forC = new FormationC();
     $formation = $forC->selectFormation($_GET['id']);
 }
-?>
 
+
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -41,7 +45,9 @@ if(isset($_GET['id'])) {
         }
 
         .formation-details {
-            margin-bottom: 20px;
+            text-align: center;
+            margin: 0 auto 20px;
+            max-width: 800px;
         }
 
         .formation-details h2 {
@@ -56,21 +62,42 @@ if(isset($_GET['id'])) {
             margin-bottom: 5px;
         }
 
+        .button-container {
+            display: flex;
+            justify-content: flex-end;
+            margin-top: 20px;
+        }
+
+        .back-button, .show-button {
+    padding: 5px 10px; /* Réduire le padding vertical */
+    font-size: 14px;
+    border-radius: 100px; /* Garder la bordure arrondie */
+}
+
+
         .back-button {
             background-color: #4caf50;
-            border: none;
-            border-radius: 5px;
             color: #ffffff;
-            cursor: pointer;
-            font-size: 20px;
-            padding: 10px 20px;
-            text-align: center;
+            border: none;
+            margin-right: 100px;
             text-decoration: none;
-            display: inline-block;
+            transition: background-color 0.3s;
+        }
+
+        .show-button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            text-decoration: none;
+            margin-left: 10px;
             transition: background-color 0.3s;
         }
 
         .back-button:hover {
+            background-color: #45a049;
+        }
+
+        .show-button:hover {
             background-color: #45a049;
         }
     </style>
@@ -97,7 +124,13 @@ if(isset($_GET['id'])) {
             <?php } ?>
 
             <!-- Back button -->
-            <a href="ListFormations.php" class="back-button">Back</a>
+            <div class="button-container">
+    <a href="ListFormations.php" class="back-button">Back to list formations </a>
+    <a href="show2.php?id=<?php echo $_GET['id'] ?>" class="show-button">Show les ateliers </a>
+</div>
+
+
+
         </div>
         <!-- End of Formations container -->
     </div>

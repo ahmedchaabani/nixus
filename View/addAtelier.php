@@ -55,7 +55,7 @@ table td {
    
         /* Form styles */
         form {
-            max-width: 400px;
+            max-width: 1000px;
             margin: 0 auto;
             padding: 20px;
             background-color: #f9f9f9;
@@ -91,6 +91,53 @@ table td {
                 width: 80%;
             }
         }
+        .form-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-group input[type="text"],
+.form-group textarea,
+.form-group select,
+.form-group button {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+.form-group textarea {
+    height: 100px;
+}
+
+.form-group button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.form-group button:hover {
+    background-color: #45a049;
+}
+
+
     </style>
     
 </head>
@@ -291,6 +338,13 @@ table td {
         <img src="images/logo.png">
         <h2>Back</h2>
         <p>To list Ateliers</p>
+    </div>
+</a>
+<a href="ListFormations.php" class="user-profile">
+    <div class="logo">
+        <img src="images/logo.png">
+        <h2>Back</h2>
+        <p>To list Formations</p>
     </div>
 </a>
 
